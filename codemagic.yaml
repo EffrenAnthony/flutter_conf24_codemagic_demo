@@ -9,6 +9,9 @@ workflows:
       events:
         - push
     scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
       # ci
       - name: Analyce code
         script: |
@@ -16,9 +19,6 @@ workflows:
       - name: Run tests
         script: |
           flutter test
-      - name: Install dependencies
-        script: |
-          flutter pub get
       - name: Build Android APK
         script: |
           flutter build apk
