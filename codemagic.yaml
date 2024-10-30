@@ -12,6 +12,12 @@ workflows:
       - name: Build Android APK
         script: |
           flutter build apk
+      - name: Analyce code
+        script: |
+          flutter analyze
+      - name: Run tests
+        script: |
+          flutter test
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
     publishing:
