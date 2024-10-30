@@ -5,19 +5,23 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       flutter: stable
+    triggering:
+      events:
+        - push
     scripts:
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Build Android APK
-        script: |
-          flutter build apk
+      # ci
       - name: Analyce code
         script: |
           flutter analyze
       - name: Run tests
         script: |
           flutter test
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build Android APK
+        script: |
+          flutter build apk
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
     publishing:
